@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Elements & Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Interactive Elements & Form Validation</h1>
+
+       
+        <button onclick="toggleBackground()">Toggle Background</button>
+
+        
+        <p id="text">Adjust the text size using the slider below.</p>
+        <input type="range" min="10" max="40" value="16" oninput="adjustTextSize(this.value)">
+
+       
+        <button onclick="openModal()">Open Modal</button>
+
+        <div id="modal">
+            <p>This is a modal window.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+
+        
+        <h2>Signup Form</h2>
+        <form id="signupForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <p id="nameError" class="error"></p>
+
+            <input type="email" id="email" placeholder="Email" required>
+            <p id="emailError" class="error"></p>
+
+            <input type="password" id="password" placeholder="Password" required>
+            <p id="passwordError" class="error"></p>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>Choose an Option:</h3>
+        <select id="dropdown" onchange="displaySelection(this.value)">
+            <option value="">Select an option</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+        </select>
+        <p id="dropdownMessage"></p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
